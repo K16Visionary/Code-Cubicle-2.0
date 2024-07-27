@@ -1,0 +1,1 @@
+http://127.0.0.1:5000/index.html?table=2 // to login as a specific table

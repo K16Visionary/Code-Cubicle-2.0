@@ -1,0 +1,151 @@
+/* General Styling & Typography */
+body {
+    font-family: 'Playfair Display', serif; /* Elegant serif font for the main text */
+    background-color: #F8F4EE; /* Cream background for a soft look */
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #8B4513; /* Rich brown for header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.menu-container {
+    max-width: 900px; /* Slightly wider */
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
+}
+
+h2 {
+    font-size: 1.8em;
+    color: #654321; /* Darker brown for subheadings */
+    border-bottom: 2px solid #E6D9C4; /* Divider under subheadings */
+    padding-bottom: 8px;
+}
+
+/* Menu Item Styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dotted #D2B48C; /* Tan dotted lines for a softer look */
+}
+
+li:last-child { /* Remove the bottom border on the last item */
+    border-bottom: none;
+}
+
+/* Enhanced Button Styling & Animations */
+button {
+    background-color: #A0522D; /* Sienna color */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smoother transition on all properties */
+}
+
+button:hover {
+    background-color: #8B4513;
+    transform: translateY(-2px); /* Subtle lift effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.order-summary {
+    max-width: 900px; /* Slightly wider */
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    text-align: center;
+}
+
+.notification {
+    display: none;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    right: 30px;
+    top: 30px;
+    border-radius: 5px;
+}
+
+.notification.show {
+    display: block;
+    animation: fadeInOut 2s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        display: block;
+        opacity: 0;
+        top: 30px;
+    }
+    50% {
+        opacity: 1;
+        top: 50px;
+    }
+    100% {
+        opacity: 0;
+        top: 30px;
+        display: none;
+    }
+}
+
+#order, #orders {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#order li, #orders li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dotted #D2B48C;
+}
+
+#order li:last-child, #orders li:last-child {
+    border-bottom: none;
+}
+
+.remove-btn {
+    background-color: #d9534f; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+    background-color: #c9302c;
+}

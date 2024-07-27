@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codec Restro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Codec Restro</h1>
+    </header>
+    <div class="menu-container">
+        <h1>Food Menu</h1>
+        <div class="section">
+            <h2>Soups</h2>
+            <ul id="soup-menu"></ul>
+        </div>
+        <div class="section">
+            <h2>Starters (Dry/Gravy)</h2>
+            <ul id="starters-menu"></ul>
+        </div>
+        <div class="section">
+            <h2>Rice & Noodles</h2>
+            <ul id="rice-noodles-menu"></ul>
+        </div>
+        <div class="section">
+            <h2>Main Course</h2>
+            <ul id="main-course-menu"></ul>
+        </div>
+        <div class="section">
+            <h2>Tandoor Appetizers</h2>
+            <ul id="tandoor-menu"></ul>
+        </div>
+        <div class="section">
+            <h2>Amma's Soya Chaap Speciality</h2>
+            <ul id="soya-chaap-menu"></ul>
+        </div>
+    </div>
+    <div class="order-summary">
+        <h2>Your Table No. is: <span id="tableNumber"></span></h2>
+        <ul id="order"></ul>
+        <p>Total Price: ₹<span id="totalPrice">0.00</span></p>
+        <label for="tipAmount">Tip Amount: ₹</label>
+        <input type="number" id="tipAmount" placeholder="0.00" min="0" step="0.01">
+        <button id="placeOrder">Place Order</button>
+        <h2>All Orders</h2>
+        <button id="showOrders">Show Orders</button>
+        <ul id="orders"></ul>
+    </div>
+    <div id="notification" class="notification">Added Successfully</div>
+    <script src="app.js"></script>
+</body>
+</html>

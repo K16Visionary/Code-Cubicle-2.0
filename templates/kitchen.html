@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kitchen</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, #f0f2f0, #008080);
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #c0392b;
+            font-size: 2.5em;
+        }
+
+        #orderList {
+            list-style: none;
+            padding: 0;
+        }
+
+        #orderList li {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 8px solid #27ae60;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .order-number {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .order-items {
+            flex-grow: 1;
+        }
+
+        .order-note {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        #orderList li.completed {
+            border-left-color: #95a5a6;
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        #orderList li:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <h1>Kitchen Orders</h1>
+        <ul id="orderList"></ul>
+    </div>
+    <script>
+        function refreshOrders() {
+            fetch('/api/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    const orderList = document.getElementById('orderList');
+                    orderList.innerHTML = ''; // Clear previous orders
+
+                    orders.forEach(order => {
+                        const li = document.createElement('li');
+
+                        const orderNumberSpan = document.createElement('span');
+                        orderNumberSpan.classList.add('order-number');
+                        orderNumberSpan.textContent = `Table ${order.tableNumber}:`;
+
+                        const orderItemsDiv = document.createElement('div');
+                        orderItemsDiv.classList.add('order-items');
+
+                        order.items.forEach(item => {
+                            const itemDiv = document.createElement('div');
+                            const itemNameSpan = document.createElement('span');
+                            itemNameSpan.textContent = item.name;
+
+                            const itemNoteSpan = document.createElement('span');
+                            itemNoteSpan.classList.add('order-note');
+                            itemNoteSpan.textContent = item.note ? ` (Note: ${item.note})` : '';
+
+                            itemDiv.appendChild(itemNameSpan);
+                            itemDiv.appendChild(itemNoteSpan);
+                            orderItemsDiv.appendChild(itemDiv);
+                        });
+
+                        li.appendChild(orderNumberSpan);
+                        li.appendChild(orderItemsDiv);
+                        orderList.appendChild(li);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching orders:', error);
+                });
+        }
+
+        refreshOrders();
+        setInterval(refreshOrders, 5000);
+    </script>
+</body>
+</html>

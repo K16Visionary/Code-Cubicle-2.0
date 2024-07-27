@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='counter.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Order Totals</h1>
+        <div class="active-orders-section">
+            <h2>Active Orders</h2>
+            <table id="activeOrdersTable">
+                <thead>
+                    <tr>
+                        <th>Table Number</th>
+                        <th>Total Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="history-section">
+            <h2>Payment History</h2>
+            <ul id="paymentHistory"></ul>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='counter.js') }}"></script>
+</body>
+</html>
